@@ -3,30 +3,35 @@ import TodoListItem from './ToDoListItem';
 
   class TodoList extends React.Component {
 
-    // Create Todo with a key prop & a text value
-    createItem() {
-      return <li key={ item.id }> { item.text }</li>
-    }
-
-    // Check if any Todo items exist Return a prompt to add or existing items
-    renderList() {
-      if (!this.props.items) {
-        return <h4>
-            Add a todo to get started.
-        </h4>
-      } else {
-        return <ul>{ this.props.items.map(createItem) }</ul>;
-      }
-    }
-
     // Render Component
     render() {
       return (
         <div>
-          {console.log('ToDo is rendering')}
+          {console.log(this.props.items)}
           { this.renderList() }
         </div>
       )
+    }
+
+    renderList() {
+      if (this.props.items === [0]) {
+        return <h4>
+            Add a todo to get started.
+        </h4>
+      } else {
+        var children = [];
+
+        for (var key in this.props.items) {
+          var item = this.props.items[key];
+          item.key = key;
+
+          children.push(
+            <ToDoListItem item ={item} key ={key} />
+          )
+        }
+
+      return children;
+      }
     }
   };
 
