@@ -1,5 +1,11 @@
 {
-  "name": "react-starterify",
+  "project": "ToDo-Material",
+  "author": "Denzil brade",
+  "appVersion": "0.0.1",
+  "appDescription": "React Js Todo app using Material.io Design, powered by firebase",
+  "backend": "Firebase",
+
+  "starterKit": "react-starterify",
   "version": "2.2.1",
   "description": "React JS application skeleton using Browserify and other awesome tools",
   "main": "app.js",
@@ -73,6 +79,7 @@
     "postcss-nested": "^1.0.0",
     "postcss-simple-extend": "^1.0.0",
     "postcss-simple-vars": "^1.0.0",
+    "re-base": "^1.5.1",
     "react-addons-test-utils": "^0.14.3",
     "rimraf": "^2.4.3",
     "run-sequence": "^1.1.2",
