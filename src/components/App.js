@@ -33,6 +33,11 @@ var base = Rebase.createClass('https://todo-materialdesign.firebaseio.com/');
       this.setState({items: nextItems, text: nextText});
     }
 
+    //
+    removeAllItems(e) {
+      this.setState({items: [], text: ''})
+    }
+
     render() {
       const AppVersion = packageJSON.appVersion;
       const Backend = packageJSON.backend;
@@ -51,6 +56,8 @@ var base = Rebase.createClass('https://todo-materialdesign.firebaseio.com/');
             <input onChange={this.onChange.bind(this)} value={this.state.text} />
             <button>{'Add #' + (this.state.items.length + 1)}</button>
           </form>
+          <button onClick={this.removeAllItems.bind(this)}>Delete All</button>
+
         </div>
       );
     }
@@ -58,9 +65,12 @@ var base = Rebase.createClass('https://todo-materialdesign.firebaseio.com/');
 
   // Render Todo List Component
   class TodoList extends React.Component {
+
     render() {
       var createItem = function(item) {
-        return <li key={item.id}>{item.text}</li>;
+        return <li key={item.id}>
+          <input type="checkbox"/> {item.text}
+        </li>;
       };
       return <ul>{this.props.items.map(createItem)}</ul>;
     }
