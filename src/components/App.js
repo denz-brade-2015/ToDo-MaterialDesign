@@ -68,11 +68,40 @@ var base = Rebase.createClass('https://todo-materialdesign.firebaseio.com/');
 
     render() {
       var createItem = function(item) {
-        return <li key={item.id}>
-          <input type="checkbox"/> {item.text}
-        </li>;
+
+        return <TodoListItem key={item.id} text={item.text}/>
+
       };
       return <ul>{this.props.items.map(createItem)}</ul>;
+    }
+  }
+
+  // Render Todo ListItem Component
+  class TodoListItem extends React.Component {
+
+    // Set Default state on todo item
+    constructor(props) {
+      super();
+
+      this.state = {
+        checked: false
+      }
+    }
+
+    handleCheckBox(e) {
+      this.setState({checked: e.target.checked})
+    }
+
+    render() {
+      return (
+        <li>
+          <input
+            onClick={this.handleCheckBox.bind(this)}
+            checked={this.state.checked}
+            type="checkbox"
+          /> {this.props.text} {console.log(this.props.key)}
+        </li>
+      )
     }
   }
 
