@@ -34,3 +34,34 @@ header {
 section {
  padding: 20px;
 }
+
+/* To do App */
+.todoApp-wrapper {
+  padding-left: 20px;
+}
+
+.todoApp-list {
+  width: 500px;
+  padding: 0;
+  float: left;
+}
+.todoApp-list li {
+  position: relative;
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.todoApp-list .todoListItem-buttons {
+  position: absolute;
+  right: 0;
+}
+
+/* Create a Todo form */
+.createTodo-button {
+  margin-left: 20px;
+}
+
+/* Delete Button */
+.task-deleteButton {
+  margin-left: 20px;
+}

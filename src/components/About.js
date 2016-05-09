@@ -5,9 +5,14 @@ import React from 'react';
   render() {
     return (
       <div>
-        <h2>About</h2>
-        <p>React Starterify aims to give you a good starting point for your projects.</p>
-        <p>If you're looking for a minimal ES6 (ES2015) React JS starter with nice shallow rendering test examples, this is probably for you.</p>
+        <h2>Some methods/functions & keywords used to create this app</h2>
+
+        <h3>Lodash Usages</h3>
+        <p> <strong>_.find</strong> = Iterates over elements of collection, returning the
+        first element predicate returns truthy for. The predicate is invoked with three
+        arguments: (value, index|key, collection).</p>
+
+
       </div>
     );
   }

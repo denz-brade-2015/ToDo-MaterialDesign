@@ -1,11 +1,26 @@
 // Dev Dependencies
+import _ from 'lodash';
 import React from 'react';
 import {Link}  from 'react-router';
 import packageJSON from '../../package.json';
 
-// Firebase
-import Rebase from 're-base';
-var base = Rebase.createClass('https://todo-materialdesign.firebaseio.com/');
+// My Components
+import CreateTodo from './CreateTodo';
+import TodoList from './TodoList';
+
+// Temporary data to start with
+const items = [
+{
+  task: 'make React tutorial',
+  isCompleted: false,
+  isChecked: false
+},
+{
+  task: 'eat dinner',
+  isCompleted: false,
+  isChecked: false
+},
+];
 
   class App extends React.Component {
 
@@ -14,28 +29,46 @@ var base = Rebase.createClass('https://todo-materialdesign.firebaseio.com/');
       super();
 
       this.state = {
-        items: [],
-        text: '',
-      }
+        items
+      };
     }
 
-    // Update ((Text State)) as input changes
-    onChange(e) {
-      this.setState({text: e.target.value});
+    createTask(task) {
+      this.state.items.push({
+        task: task, // es6 task,
+        isCompleted: false,
+        isChecked: false
+      });
+      this.setState({ items: this.state.items });
     }
 
-    // Add ((Text State)) & ID to create an Item. Add this to ((Item State))
-    handleSubmit(e) {
-      e.preventDefault();
-      var nextItems = this.state.items.concat([{text: this.state.text, id: Date.now()}]);
-      var nextText = '';
-      // Update ((Item state)) & clear ((Text state)) ready for the next input
-      this.setState({items: nextItems, text: nextText});
-    }
-
-    //
     removeAllItems(e) {
-      this.setState({items: [], text: ''})
+      this.setState({items: [], task: ''});
+    }
+
+    toggleTask(task) {
+      // find, finds the first matching item in the array that matches the condition we set
+      const foundTodo = _.find(this.state.items, item => item.task === task);
+
+      // Toggle state when selected/checked
+      foundTodo.isCompleted = !foundTodo.isCompleted;
+      foundTodo.isChecked = !foundTodo.isChecked;
+      // Updates the state to new value
+      this.setState({ items: this.state.items });
+    }
+
+    saveTask(oldTask, newTask) {
+      // find this task it refers to oldTask
+      const foundTodo = _.find(this.state.items, item => item.task === oldTask);
+      // replace the oldTask with the new values
+      foundTodo.task = newTask;
+      this.setState({ items: this.state.items });
+    }
+
+    deleteTask(taskToDelete) {
+      _.remove(this.state.items, item => item.task === taskToDelete);
+
+      this.setState({ items: this.state.items });
     }
 
     render() {
@@ -47,64 +80,21 @@ var base = Rebase.createClass('https://todo-materialdesign.firebaseio.com/');
           <header>
             <h1>Material ToDo {AppVersion}</h1>
             <Link to="/about">About</Link>
-            <Link to="/poweredby">Powered by ' {Backend} '</Link>
           </header>
 
-          <h3>TODO</h3>
-          <TodoList items={this.state.items} />
-          <form onSubmit={this.handleSubmit.bind(this)}>
-            <input onChange={this.onChange.bind(this)} value={this.state.text} />
-            <button>{'Add #' + (this.state.items.length + 1)}</button>
-          </form>
-          <button onClick={this.removeAllItems.bind(this)}>Delete All</button>
-
+          <div className="todoApp-wrapper">
+            <h3>TODO</h3>
+            <CreateTodo items={this.state.items} createTask={this.createTask.bind(this)}/>
+            <TodoList
+              items={this.state.items}
+              toggleTask={this.toggleTask.bind(this)}
+              saveTask={this.saveTask.bind(this)}
+              deleteTask={this.deleteTask.bind(this)}
+            />
+          </div>
         </div>
       );
     }
   }
-
-  // Render Todo List Component
-  class TodoList extends React.Component {
-
-    render() {
-      var createItem = function(item) {
-
-        return <TodoListItem key={item.id} text={item.text}/>
-
-      };
-      return <ul>{this.props.items.map(createItem)}</ul>;
-    }
-  }
-
-  // Render Todo ListItem Component
-  class TodoListItem extends React.Component {
-
-    // Set Default state on todo item
-    constructor(props) {
-      super();
-
-      this.state = {
-        checked: false
-      }
-    }
-
-    handleCheckBox(e) {
-      this.setState({checked: e.target.checked})
-    }
-
-    render() {
-      return (
-        <li>
-          <input
-            onClick={this.handleCheckBox.bind(this)}
-            checked={this.state.checked}
-            type="checkbox"
-          /> {this.props.text} {console.log(this.props.key)}
-        </li>
-      )
-    }
-  }
-
-
 
 export default App;
