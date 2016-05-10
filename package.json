@@ -1,8 +1,8 @@
 {
   "project": "ToDo-Material",
-  "author": "Maurizio Mangione",
+  "author": "Denzil Brade",
   "appVersion": "0.0.1",
-  "appDescription": "React Js Todo app using Material.io Design, powered by firebase",
+  "appDescription": "React Js Todo app utilizing Material Design",
   "backend": "Firebase",
   "starterKit": "react-starterify",
   "version": "2.2.1",
@@ -75,6 +75,7 @@
     "gulp-uglify": "^1.4.0",
     "imagemin-pngquant": "^4.2.0",
     "lodash": "^4.10.0",
+    "materialize-css": "^0.97.6",
     "postcss-nested": "^1.0.0",
     "postcss-simple-extend": "^1.0.0",
     "postcss-simple-vars": "^1.0.0",

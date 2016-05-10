@@ -24,7 +24,7 @@ import React from 'react';
         return (
           <span>
             <form onSubmit={this.onSaveClick.bind(this)}>
-              <input type="text" ref="editInput" defaultValue={task} />
+              <input className="todoInput-onEdit" type="text" ref="editInput" defaultValue={task} />
             </form>
           </span>
         );
@@ -32,7 +32,7 @@ import React from 'react';
 
       // TODO Make Checkbox & color change share the same state instance on click/change
       return (
-        <span style={taskStyle} onClick={this.props.toggleTask.bind(this, task)}>
+        <span className="todo-taskContent" style={taskStyle} onClick={this.props.toggleTask.bind(this, task)}>
           <input type="checkbox" checked={this.props.isChecked} />
           {task}
         </span>
@@ -42,17 +42,17 @@ import React from 'react';
     renderActionSection() {
       if (this.state.isEditing) {
         return (
-          <span>
-            <button onClick={this.onSaveClick.bind(this)}>Save</button>
-            <button onClick={this.onCancelClick.bind(this)}>Cancel</button>
+          <span className="todoListItem-buttons">
+            <button className="task-saveButton btn" onClick={this.onSaveClick.bind(this)}>Save</button>
+            <button className="task-cancelButton btn" onClick={this.onCancelClick.bind(this)}>Cancel</button>
           </span>
         );
       }
 
       return (
         <span className="todoListItem-buttons">
-          <button onClick={this.onEditClick.bind(this)}>Edit Item</button>
-          <button className="task-deleteButton" onClick={this.props.deleteTask.bind(this, this.props.task)}>Delete Item</button>
+          <button className="task-EditButton btn" onClick={this.onEditClick.bind(this)}>Edit Item</button>
+          <button className="task-deleteButton btn" onClick={this.props.deleteTask.bind(this, this.props.task)}>Delete Item</button>
         </span>
       );
     }

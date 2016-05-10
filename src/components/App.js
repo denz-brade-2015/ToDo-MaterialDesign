@@ -11,12 +11,12 @@ import TodoList from './TodoList';
 // Temporary data to start with
 const items = [
 {
-  task: 'make React tutorial',
+  task: 'Make React tutorial',
   isCompleted: false,
   isChecked: false
 },
 {
-  task: 'eat dinner',
+  task: 'Eat dinner',
   isCompleted: false,
   isChecked: false
 },

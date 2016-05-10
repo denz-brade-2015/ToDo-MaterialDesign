@@ -20,9 +20,9 @@ class CreateItem extends React.Component {
     render() {
       return (
 
-        <form className="createTodo-input" onSubmit={this.handleSubmit.bind(this)}>
-          <input type="text" ref="createInput" />
-          <button className="createTodo-button">Create</button>
+        <form className="createTodo-inputForm" onSubmit={this.handleSubmit.bind(this)}>
+          <input className="createTodo-input" type="text" ref="createInput" />
+          <button className="createTodo-button todo-btn btn">Create</button>
           {this.renderError()}
         </form>
       )

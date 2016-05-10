@@ -1,8 +1,12 @@
+$box-shadows: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  // font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #333;
   background-color: #fff;
   margin: 0;
@@ -13,6 +17,7 @@ header {
   color: #fff;
   background: #0066bb url(../images/reactjs.png) no-repeat right 10px;
   background-size: contain;
+  margin-bottom: 50px;
   h1 {
     display: inline-block;
     padding: 0 20px;
@@ -35,33 +40,88 @@ section {
  padding: 20px;
 }
 
+/* buttons */
+.btn {
+  border: none;
+  text-decoration: none;
+  color: #fff;
+  background-color: #06b;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  box-shadow: $box-shadows;
+  cursor: pointer;
+}
+
+.task-EditButton, .task-deleteButton,
+.task-saveButton, .task-cancelButton {
+  padding: 5px;
+
+}
+
 /* To do App */
 .todoApp-wrapper {
-  padding-left: 20px;
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: $box-shadows;
 }
 
 .todoApp-list {
-  width: 500px;
   padding: 0;
-  float: left;
-}
-.todoApp-list li {
-  position: relative;
-  margin-bottom: 10px;
-  list-style: none;
 }
 
-.todoApp-list .todoListItem-buttons {
-  position: absolute;
-  right: 0;
+.todoApp-list li {
+  height: 30px;
+  position: relative;
+  margin-bottom: 20px;
+  list-style: none;
+
+  .todoListItem-buttons {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 
 /* Create a Todo form */
+.createTodo-inputForm {
+  margin-bottom: 50px;
+}
+
+.createTodo-input {
+  width: 290px;
+  height: 40px;
+  font-size: 14px;
+  box-shadow: $box-shadows;
+  border: 1px rgba(0,0,0,0.16);
+}
+
 .createTodo-button {
   margin-left: 20px;
+  font-size: 14px;
+}
+
+.todo-btn {
+  height: 40px;
+  line-height: 40px;
+}
+
+.todoInput-onEdit {
+  font-size: 14px;
+  padding: 4px;
+  box-shadow: $box-shadows;
+  border: 1px rgba(0,0,0,0.16);
 }
 
 /* Delete Button */
 .task-deleteButton {
   margin-left: 20px;
+}
+
+
+/* To do app */
+.todo-taskContent {
+  display: block;
+  padding-right: 160px;
 }
