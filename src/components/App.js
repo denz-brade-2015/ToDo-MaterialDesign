@@ -1,3 +1,7 @@
+/**
+ * Author: Denzil Brade
+ */
+
 // Dev Dependencies
 import _ from 'lodash';
 import React from 'react';
@@ -12,11 +16,16 @@ import TodoList from './TodoList';
 const items = [
 {
   task: 'Make React tutorial',
+  isCompleted: true,
+  isChecked: true
+},
+{
+  task: 'Watch Game of Thrones',
   isCompleted: false,
   isChecked: false
 },
 {
-  task: 'Eat dinner',
+  task: 'Write up blog post',
   isCompleted: false,
   isChecked: false
 },
@@ -33,27 +42,25 @@ const items = [
       };
     }
 
+    // When tasks are created push the following props to each task's state
     createTask(task) {
       this.state.items.push({
         task: task, // es6 task,
         isCompleted: false,
         isChecked: false
       });
+      // Update state of our items
       this.setState({ items: this.state.items });
     }
 
-    removeAllItems(e) {
-      this.setState({items: [], task: ''});
-    }
-
     toggleTask(task) {
-      // find, finds the first matching item in the array that matches the condition we set
+      // Lodash > _.find, finds the first matching item in the array that matches the condition we set
       const foundTodo = _.find(this.state.items, item => item.task === task);
 
       // Toggle state when selected/checked
       foundTodo.isCompleted = !foundTodo.isCompleted;
       foundTodo.isChecked = !foundTodo.isChecked;
-      // Updates the state to new value
+      // Update state of our items after toggle
       this.setState({ items: this.state.items });
     }
 
@@ -62,18 +69,23 @@ const items = [
       const foundTodo = _.find(this.state.items, item => item.task === oldTask);
       // replace the oldTask with the new values
       foundTodo.task = newTask;
+      // Update the state of our items with the newTask data
       this.setState({ items: this.state.items });
     }
 
     deleteTask(taskToDelete) {
+      // removes the selected item from the array of 'items'
       _.remove(this.state.items, item => item.task === taskToDelete);
-
+      // Update the state with new list of array items
       this.setState({ items: this.state.items });
     }
 
+    /**
+     * RENDER Our App
+     * @return {[JSX]} [description: view for our app including our child components]
+     */
     render() {
       const AppVersion = packageJSON.appVersion;
-      const Backend = packageJSON.backend;
 
       return (
         <div>
@@ -83,7 +95,7 @@ const items = [
           </header>
 
           <div className="todoApp-wrapper">
-            <h3>TODO</h3>
+            <h3>Create Todo</h3>
             <CreateTodo items={this.state.items} createTask={this.createTask.bind(this)}/>
             <TodoList
               items={this.state.items}

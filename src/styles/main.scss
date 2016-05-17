@@ -1,4 +1,5 @@
 $box-shadows: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+$teal: #26a69a;
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -15,12 +16,15 @@ body {
 
 header {
   color: #fff;
-  background: #0066bb url(../images/reactjs.png) no-repeat right 10px;
+  background: $teal url(../images/reactjs.png) no-repeat right 10px;
   background-size: contain;
   margin-bottom: 50px;
   h1 {
     display: inline-block;
     padding: 0 20px;
+  }
+  h3 {
+    margin-bottom: 40px;
   }
   a {
     display: inline-block;
@@ -41,21 +45,10 @@ section {
 }
 
 /* buttons */
-.btn {
-  border: none;
-  text-decoration: none;
-  color: #fff;
-  background-color: #06b;
-  text-align: center;
-  letter-spacing: .5px;
-  transition: .2s ease-out;
-  box-shadow: $box-shadows;
-  cursor: pointer;
-}
 
 .task-EditButton, .task-deleteButton,
 .task-saveButton, .task-cancelButton {
-  padding: 5px;
+  padding: 0 10px;
 
 }
 
@@ -89,12 +82,14 @@ section {
   margin-bottom: 50px;
 }
 
-.createTodo-input {
-  width: 290px;
+input.createTodo-input {
+  width: 310px;
   height: 40px;
-  font-size: 14px;
+  font-size: 18px;
+  padding-left: 10px;
   box-shadow: $box-shadows;
   border: 1px rgba(0,0,0,0.16);
+  outline: none;
 }
 
 .createTodo-button {
@@ -112,6 +107,7 @@ section {
   padding: 4px;
   box-shadow: $box-shadows;
   border: 1px rgba(0,0,0,0.16);
+  outline: none;
 }
 
 /* Delete Button */
@@ -123,5 +119,10 @@ section {
 /* To do app */
 .todo-taskContent {
   display: block;
-  padding-right: 160px;
+  padding-right: 230px;
+}
+
+/* Checkboxes */
+.defaultCheckbox {
+  vertical-align: middle;
 }
