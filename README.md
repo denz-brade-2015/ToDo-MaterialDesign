@@ -5,6 +5,8 @@
 <img src="https://github.com/reactjs/react-router/blob/master/logo/vertical@2x.png" width="200px">
 <img src="https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png" width="50px">
 
+***
+
 ### Getting Started 
 
 * Make sure Node JS is on your machine download latest **stable** version here:
@@ -22,3 +24,4 @@ https://nodejs.org/en/
 
 1. Clone **repo** to local machine
 2. **Install NPM** in project > will set up your node modules directory `npm install`
+

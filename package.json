@@ -34,8 +34,7 @@
     "watch": "gulp watch",
     "build": "gulp build",
     "deploy": "gulp deploy",
-    "test": "ava --tap | tap-nyan",
-    "postinstall": "cp node_modules/materialize-css/js/date_picker/picker.js www/lib"
+    "test": "ava --tap | tap-nyan"
 
   },
   "license": "MIT",
