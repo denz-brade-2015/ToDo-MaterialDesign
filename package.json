@@ -77,7 +77,6 @@
     "gulp-uglify": "^1.4.0",
     "imagemin-pngquant": "^4.2.0",
     "lodash": "^4.10.0",
-    "materialize-css": "^0.97.6",
     "postcss-nested": "^1.0.0",
     "postcss-simple-extend": "^1.0.0",
     "postcss-simple-vars": "^1.0.0",
