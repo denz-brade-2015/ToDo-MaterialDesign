@@ -91,7 +91,7 @@ const items = [
         <div>
           <header>
             <h1>Material ToDo {AppVersion}</h1>
-            <Link to="/about">About</Link>
+            <Link to="about">About</Link>
           </header>
 
           <div className="todoApp-wrapper">

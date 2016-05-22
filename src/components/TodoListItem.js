@@ -21,10 +21,6 @@ import React from 'react';
      * [Handling our click Events]
      */
 
-    handleCheckBox(e) {
-      this.setState({done: e.target.checked});
-    }
-
     onEditClick(e) {
       this.setState({isEditing: true});
     }
