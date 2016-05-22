@@ -25,3 +25,15 @@ https://nodejs.org/en/
 1. Clone **repo** to local machine
 2. **Install NPM** in project > will set up your node modules directory `npm install`
 
+
+### Well that was easy, lets run it now.
+
+` Gulp watch `
+
+## Creator
+
+*Denzil Brade* 
+
+Feel free to connect with me, and check out my blog.
+<https://medium.com/@denz_brade>
+
