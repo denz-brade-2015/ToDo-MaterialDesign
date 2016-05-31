@@ -75,8 +75,8 @@ import React from 'react';
       // VIEW Tasks default
       return (
         <span className="todo-taskContent" style={taskStyle} onClick={this.props.toggleTask.bind(this, task)}>
-          <input type="checkbox" checked={this.props.isChecked} />
-          <label className="defaultCheckbox" for="test5"></label>{task}
+          <input type="checkbox" onChange={this.props.toggleTask} checked={this.props.isChecked} />
+          <label className="defaultCheckbox" htmlFor="test5"></label>{task}
         </span>
       );
     }
