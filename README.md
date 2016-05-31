@@ -18,7 +18,7 @@ https://nodejs.org/en/
 
 * Install Gulp globally
 
-&nbsp;&nbsp; ` npm install --g gulp ` or ` sudo npm install --g gulp `
+&nbsp;&nbsp; ` npm install -g gulp ` or ` sudo npm install -g gulp `
 
 ### Now Lets set up the project 
 
